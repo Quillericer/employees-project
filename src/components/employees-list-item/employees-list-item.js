@@ -23,7 +23,7 @@ class EmployeesListItem extends Component {
     }
 
     render() {
-        const {name, salary} = this.props;
+        const {name, salary, onDelete} = this.props;
         const {increase, like} = this.state;
         let classNames = 'list-group-item d-flex justify-content-between'; // базовый класс
         if (increase) { // если increase в позиции true, то конкатенируется еще один класс, тк наши классы это просто строка
@@ -45,7 +45,7 @@ class EmployeesListItem extends Component {
     
                     <button type='button'
                         className='btn-trash btn-sm'>
-                        <i className="fas fa-trash"></i>
+                        <i className="fas fa-trash" onClick={onDelete}></i>
                     </button>
                     <i className="fas fa-star"></i>
                 </div>

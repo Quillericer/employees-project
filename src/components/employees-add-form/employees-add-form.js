@@ -5,14 +5,14 @@ class EmployeesAddForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            salary: ''
+            name: '', // имя каждого отдельного рабочего при добавлении
+            salary: '' // зарплата каждого отдельного рабочего
         }
     }
 
     onValueChange = (e) => {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value // в значение ключа будет добавляться наш инпут. e.target.name совпадает с нашим атрибутом name, чтобы сразу в нужный ключ записывалось нужное значение
         });
     }
 
