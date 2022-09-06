@@ -13,11 +13,12 @@ class App extends Component {
         super(props);
         this.state = {
             data: [
-                {name: 'Jessy', salary: 800, increase: true, id: 1, like: false},
-                {name: 'Walter', salary: 3000, increase: false, id: 2, like: false},
-                {name: 'Hank', salary: 15000, increase: false, id: 3, like: false}
+                {name: 'Jessy', salary: '800', increase: true, id: 1, like: false},
+                {name: 'Walter', salary: '3000', increase: false, id: 2, like: false},
+                {name: 'Hank', salary: '15000', increase: false, id: 3, like: false}
             ]
         }
+        this.maxId = 4;
     }
 
     deleteItem = (id) => {
@@ -36,6 +37,23 @@ class App extends Component {
         });
     }
 
+    newEmployee = (name, salary) => {
+        const newItem = {
+            name,
+            salary,
+            increase: false,
+            id: this.maxId++
+        }
+        this.setState(({data}) => {
+            const newArr = [...data, newItem];
+            return {
+                data: newArr
+            }      
+        });
+    }
+
+
+
     render() {
         return (
             <div className='app'>
@@ -48,7 +66,8 @@ class App extends Component {
                 <EmployeesList 
                 data={this.state.data}
                 onDelete={this.deleteItem}/>
-                <EmployeesAddForm/>
+                <EmployeesAddForm
+                onAdd={this.newEmployee}/>
             </div>
         );
     }
