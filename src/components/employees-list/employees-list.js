@@ -1,5 +1,5 @@
 import EmployeesListItem from '../employees-list-item/employees-list-item';
-import './employees-list.css';
+import './employees-list.sass';
 
 const EmployeesList = ({data, onDelete, onToggleProp}) => { // мы передали массив с данными, которые находятся в App.
     const elements = data.map(item => { // каждый объект с данными будет использоваться в отдельном компоненте
